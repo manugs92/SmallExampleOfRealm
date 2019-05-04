@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RealmApp</string>
+    <string name="title_activity_borrarla">borrarla</string>
+    <string name="title_activity_edit_contact">EditContactActivity</string>
+</resources>
