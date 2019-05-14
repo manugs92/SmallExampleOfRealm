@@ -36,6 +36,7 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
         ((ContactoViewHolder) viewHolder).nombrePersona.setText(persona.getNombre());
         ((ContactoViewHolder) viewHolder).edadPersona.setText(String.valueOf(persona.getEdad()));
         ((ContactoViewHolder) viewHolder).generoPersona.setText(persona.getGenero());
+        ((ContactoViewHolder) viewHolder).alturaPersona.setText(String.valueOf(persona.getAltura()));
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,12 +120,14 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
         private TextView nombrePersona;
         private TextView edadPersona;
         private TextView generoPersona;
+        private TextView alturaPersona;
 
         ContactoViewHolder(View item_contacto) {
             super(item_contacto);
             nombrePersona = item_contacto.findViewById(R.id.nombrePersona);
             edadPersona = item_contacto.findViewById(R.id.edadPersona);
             generoPersona = item_contacto.findViewById(R.id.generoPersona);
+            alturaPersona = item_contacto.findViewById(R.id.alturaPersona);
         }
     }
 

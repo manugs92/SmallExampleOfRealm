@@ -21,6 +21,7 @@ public class ShowContactActivity extends AppCompatActivity {
         final TextView TVnombre = findViewById(R.id.nombrePersona);
         final TextView TVedad = findViewById(R.id.edadPersona);
         final TextView TVgenero = findViewById(R.id.generoPersona);
+        final TextView TValtura = findViewById(R.id.alturaPersona);
 
         Realm realm = Realm.getDefaultInstance();
 
@@ -36,6 +37,7 @@ public class ShowContactActivity extends AppCompatActivity {
             TVnombre.setText(nombre);
             TVedad.setText(String.valueOf(edad));
             TVgenero.setText(genero);
+            TValtura.setText(String.valueOf(persona.getAltura()));
         }
 
         Button volverAtras = findViewById(R.id.volverAtras);

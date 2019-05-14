@@ -20,6 +20,7 @@ public class EditContactActivity extends AppCompatActivity {
         final EditText ETnombre = findViewById(R.id.nombrePersona);
         final EditText ETedad = findViewById(R.id.edadPersona);
         final EditText ETgenero = findViewById(R.id.generoPersona);
+        final EditText ETaltura = findViewById(R.id.alturaPersona);
 
         Realm realm = Realm.getDefaultInstance();
 
@@ -31,10 +32,12 @@ public class EditContactActivity extends AppCompatActivity {
         if(persona != null) {
             int edad = persona.getEdad();
             String genero = persona.getGenero();
+            int altura = persona.getAltura();
 
             ETnombre.setText(nombre);
             ETedad.setText(String.valueOf(edad));
             ETgenero.setText(genero);
+            ETaltura.setText(String.valueOf(altura));
         }
 
         Button guardarCambios = findViewById(R.id.guardarCambios);
@@ -43,7 +46,8 @@ public class EditContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int edad = Integer.valueOf(ETedad.getText().toString());
-                Persona persona = new Persona(ETnombre.getText().toString(),edad,ETgenero.getText().toString());
+                int altura = Integer.valueOf(ETaltura.getText().toString());
+                Persona persona = new Persona(ETnombre.getText().toString(),edad,ETgenero.getText().toString(),altura);
                 realm.beginTransaction();
                 realm.copyToRealmOrUpdate(persona);
                 realm.commitTransaction();

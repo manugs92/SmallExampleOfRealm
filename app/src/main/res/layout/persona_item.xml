@@ -23,5 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/generoPersona"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alturaPersona"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

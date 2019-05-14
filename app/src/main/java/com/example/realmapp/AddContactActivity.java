@@ -18,6 +18,7 @@ public class AddContactActivity extends AppCompatActivity {
         final EditText ETnombre = findViewById(R.id.nombrePersona);
         final EditText ETedad = findViewById(R.id.edadPersona);
         final EditText ETgenero = findViewById(R.id.generoPersona);
+        final EditText ETAltura = findViewById(R.id.alturaPersona);
 
         Realm realm = Realm.getDefaultInstance();
 
@@ -28,8 +29,9 @@ public class AddContactActivity extends AppCompatActivity {
                 String nombre = ETnombre.getText().toString();
                 int edad = Integer.valueOf(ETedad.getText().toString());
                 String genero = ETgenero.getText().toString();
+                int altura = Integer.valueOf(ETAltura.getText().toString());
 
-                Persona persona = new Persona(nombre,edad,genero);
+                Persona persona = new Persona(nombre,edad,genero,altura);
 
                 realm.beginTransaction();
                 realm.copyToRealm(persona);

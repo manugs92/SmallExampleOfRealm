@@ -17,15 +17,13 @@ import android.widget.TextView;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 
 public class MainActivity extends AppCompatActivity {
 
-
-    //TODO: En el MainActivity, mostrar la agenda, y un botón de añadir contacto.
-    //TODO: Arriba del todo tener el filtro.
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -35,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Inicializamos realm.
         Realm.init(this);
+
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .name("default0.realm")
+                .schemaVersion(1) // Must be bumped when the schema changes
+                .migration(new MyMigration()) // Migration to run instead of throwing an exception
+                .build();
+        Realm.setDefaultConfiguration(config);
 
         //Creamos objeto realm.
         Realm realm = Realm.getDefaultInstance();
